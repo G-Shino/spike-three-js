@@ -4,7 +4,10 @@ window.addEventListener("DOMContentLoaded", () => {
   // レンダラーを作成
   const renderer = new THREE.WebGLRenderer();
   // レンダラーのサイズを設定
-  renderer.setSize(800, 600);
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setSize(width, height);
   // canvasをbodyに追加
   document.body.appendChild(renderer.domElement);
 
@@ -12,7 +15,8 @@ window.addEventListener("DOMContentLoaded", () => {
   const scene = new THREE.Scene();
 
   // カメラを作成
-  const camera = new THREE.PerspectiveCamera(45, 800 / 600, 1, 10000);
+  const camera_aspect = width / height;
+  const camera = new THREE.PerspectiveCamera(45, camera_aspect, 1, 10000);
   camera.position.set(0, 0, 1000);
 
   // 箱を作成
@@ -24,14 +28,15 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // 平行光源を生成
   const light = new THREE.DirectionalLight(0xffffff);
+  //   const light = new THREE.AmbientLight();
   light.position.set(1, 1, 1);
   scene.add(light);
 
   const tick = (): void => {
     requestAnimationFrame(tick);
 
-    box.rotation.x += 0.05;
-    box.rotation.y += 0.05;
+    // box.rotation.x += 0.05;
+    box.rotation.y += 0.01;
 
     // 描画
     renderer.render(scene, camera);
