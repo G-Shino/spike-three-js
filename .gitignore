@@ -1,0 +1,8 @@
+# package directories
+node_modules
+
+# Webpack directories
+.webpack
+
+#extra files
+.DS_Store

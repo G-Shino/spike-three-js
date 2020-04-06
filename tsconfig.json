@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "lib": ["dom", "es2017"],
+    "module": "ES2015",
+    "target": "es5",
+    "moduleResolution": "node"
+  },
+  "exclude": ["node_modules", "scripts"]
+}
