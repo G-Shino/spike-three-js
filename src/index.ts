@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import Earth from "./data/earthmap1k.jpg";
 
 window.addEventListener("DOMContentLoaded", () => {
   // レンダラーを作成
@@ -20,23 +21,39 @@ window.addEventListener("DOMContentLoaded", () => {
   camera.position.set(0, 0, 1000);
 
   // 箱を作成
-  const geometry = new THREE.BoxGeometry(250, 250, 250);
-  const material = new THREE.MeshPhongMaterial({ color: 0xff0000 });
-  const box = new THREE.Mesh(geometry, material);
-  box.position.z = -5;
-  scene.add(box);
+  const geometry_box = new THREE.BoxGeometry(50, 50, 50);
+  const material_box = new THREE.MeshPhongMaterial({ color: 0xff0000 });
+  const mesh_box = new THREE.Mesh(geometry_box, material_box);
+  mesh_box.position.y = 300;
+  mesh_box.position.x = 300;
+  scene.add(mesh_box);
+
+  // 地球を作成
+  // 球体を作成
+  const geometry_earth = new THREE.SphereGeometry(300, 30, 30);
+  // 画像を読み込む
+  const loader_earth = new THREE.TextureLoader();
+  const texture_earth = loader_earth.load(Earth);
+  // マテリアルにテクスチャーを設定
+  const material_earth = new THREE.MeshStandardMaterial({
+    map: texture_earth
+  });
+  // メッシュを作成
+  const mesh_earth = new THREE.Mesh(geometry_earth, material_earth);
+  mesh_earth.rotation.y += 1;
+  // 3D空間にメッシュを追加
+  scene.add(mesh_earth);
 
   // 平行光源を生成
   const light = new THREE.DirectionalLight(0xffffff);
-  //   const light = new THREE.AmbientLight();
   light.position.set(1, 1, 1);
   scene.add(light);
 
   const tick = (): void => {
     requestAnimationFrame(tick);
 
-    // box.rotation.x += 0.05;
-    box.rotation.y += 0.01;
+    mesh_box.rotation.y += 0.01;
+    mesh_earth.rotation.y += 0.01;
 
     // 描画
     renderer.render(scene, camera);

@@ -10,7 +10,7 @@ module.exports = {
   devtool: "source-map",
 
   resolve: {
-    extensions: [".ts", ".js"]
+    extensions: [".ts", ".js", ".jpg"]
   },
 
   module: {
@@ -18,6 +18,14 @@ module.exports = {
       {
         test: /\.tsx?$/,
         use: [{ loader: "ts-loader" }]
+      },
+      {
+        test: /\.(mp4|png|jpg)?$/,
+        use: [
+          {
+            loader: "file-loader"
+          }
+        ]
       }
     ]
   },
