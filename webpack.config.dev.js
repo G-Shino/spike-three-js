@@ -4,7 +4,8 @@ const webpack = require("webpack");
 module.exports = {
   entry: {
     index: "./src/index.ts",
-    earth: "./src/earth.ts"
+    earth: "./src/earth.ts",
+    geometory: "./src/geometory.ts"
   },
   output: {
     path: path.join(__dirname, "dist"),
