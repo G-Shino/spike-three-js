@@ -2,9 +2,13 @@ const path = require("path");
 const webpack = require("webpack");
 
 module.exports = {
-  entry: "./src/index.ts",
+  entry: {
+    index: "./src/index.ts",
+    earth: "./src/earth.ts"
+  },
   output: {
-    filename: "./js/bundle.js"
+    path: path.join(__dirname, "dist"),
+    filename: "./js/[name].js"
   },
 
   devtool: "source-map",
@@ -31,7 +35,6 @@ module.exports = {
   },
 
   devServer: {
-    open: true,
     contentBase: path.join(__dirname, "./dist"),
     watchContentBase: true,
     port: 3000
