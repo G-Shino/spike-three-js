@@ -9,7 +9,8 @@
     "lib": ["dom", "es2017"],
     "module": "ES2015",
     "target": "es5",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "typeRoots": ["types", "node_modules/@types"]
   },
   "exclude": ["node_modules", "scripts"]
 }

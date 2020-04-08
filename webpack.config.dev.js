@@ -2,15 +2,19 @@ const path = require("path");
 const webpack = require("webpack");
 
 module.exports = {
-  entry: "./src/index.ts",
+  entry: {
+    index: "./src/index.ts",
+    earth: "./src/earth.ts"
+  },
   output: {
-    filename: "./js/bundle.js"
+    path: path.join(__dirname, "dist"),
+    filename: "./js/[name].js"
   },
 
   devtool: "source-map",
 
   resolve: {
-    extensions: [".ts", ".js"]
+    extensions: [".ts", ".js", ".jpg"]
   },
 
   module: {
@@ -18,12 +22,19 @@ module.exports = {
       {
         test: /\.tsx?$/,
         use: [{ loader: "ts-loader" }]
+      },
+      {
+        test: /\.(mp4|png|jpg)?$/,
+        use: [
+          {
+            loader: "file-loader"
+          }
+        ]
       }
     ]
   },
 
   devServer: {
-    open: true,
     contentBase: path.join(__dirname, "./dist"),
     watchContentBase: true,
     port: 3000
