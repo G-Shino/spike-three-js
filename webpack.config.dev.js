@@ -5,7 +5,7 @@ module.exports = {
   entry: {
     index: "./src/index.ts",
     earth: "./src/earth.ts",
-    earth_with_rotation_cam: "./src/earth_with_rotation_cam.ts",
+    earthWithRotationCam: "./src/earthWithRotationCam.ts",
     geometory: "./src/geometory.ts"
   },
   output: {
