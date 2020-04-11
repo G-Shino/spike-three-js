@@ -6,7 +6,8 @@ module.exports = {
     index: "./src/index.ts",
     earth: "./src/earth.ts",
     earthWithRotationCam: "./src/earthWithRotationCam.ts",
-    geometory: "./src/geometory.ts"
+    geometory: "./src/geometory.ts",
+    orbitControl: "./src/orbitControl.ts"
   },
   output: {
     path: path.join(__dirname, "dist"),
