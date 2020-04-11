@@ -8,7 +8,8 @@ module.exports = {
     earth: "./src/ts/earth.ts",
     earthWithRotationCam: "./src/ts/earthWithRotationCam.ts",
     geometory: "./src/ts/geometory.ts",
-    orbitControl: "./src/ts/orbitControl.ts"
+    orbitControl: "./src/ts/orbitControl.ts",
+    shadow: "./src/ts/shadow.ts"
   },
   output: {
     path: path.join(__dirname, "dist"),
@@ -78,6 +79,12 @@ module.exports = {
       template: "./src/html/three_pages.html",
       inject: "head",
       chunks: ["orbitControl"]
+    }),
+    new HtmlWebpackPlugin({
+      filename: "shadow.html",
+      template: "./src/html/three_pages.html",
+      inject: "head",
+      chunks: ["shadow"]
     })
   ]
 };
