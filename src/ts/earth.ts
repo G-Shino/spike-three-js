@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import Earth from "./data/earthmap1k.jpg";
+import Earth from "./../data/earthmap1k.jpg";
 
 window.addEventListener("DOMContentLoaded", () => {
   // レンダラーを作成
