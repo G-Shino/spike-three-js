@@ -1,13 +1,14 @@
 const path = require("path");
 const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    index: "./src/index.ts",
-    earth: "./src/earth.ts",
-    earthWithRotationCam: "./src/earthWithRotationCam.ts",
-    geometory: "./src/geometory.ts",
-    orbitControl: "./src/orbitControl.ts"
+    index: "./src/ts/index.ts",
+    earth: "./src/ts/earth.ts",
+    earthWithRotationCam: "./src/ts/earthWithRotationCam.ts",
+    geometory: "./src/ts/geometory.ts",
+    orbitControl: "./src/ts/orbitControl.ts"
   },
   output: {
     path: path.join(__dirname, "dist"),
@@ -33,6 +34,10 @@ module.exports = {
             loader: "file-loader"
           }
         ]
+      },
+      {
+        test: /\.html?$/,
+        use: [{ loader: "html-loader" }]
       }
     ]
   },
@@ -41,5 +46,38 @@ module.exports = {
     contentBase: path.join(__dirname, "./dist"),
     watchContentBase: true,
     port: 3000
-  }
+  },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: "index.html",
+      template: "./src/html/index.html",
+      inject: "head",
+      chunks: ["index"]
+    }),
+    new HtmlWebpackPlugin({
+      filename: "earth.html",
+      template: "./src/html/three_pages.html",
+      inject: "head",
+      chunks: ["earth"]
+    }),
+    new HtmlWebpackPlugin({
+      filename: "earthWithRotationCam.html",
+      template: "./src/html/three_pages.html",
+      inject: "head",
+      chunks: ["earthWithRotationCam"]
+    }),
+    new HtmlWebpackPlugin({
+      filename: "geometory.html",
+      template: "./src/html/three_pages.html",
+      inject: "head",
+      chunks: ["geometory"]
+    }),
+    new HtmlWebpackPlugin({
+      filename: "orbitControl.html",
+      template: "./src/html/three_pages.html",
+      inject: "head",
+      chunks: ["orbitControl"]
+    })
+  ]
 };
