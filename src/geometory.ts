@@ -36,7 +36,6 @@ window.addEventListener("DOMContentLoaded", () => {
   // ジオメトリを作成
   const geometryList = [
     new THREE.SphereGeometry(50), // 球体
-    new THREE.BoxGeometry(100, 100, 100), // 直方体
     new THREE.PlaneGeometry(100, 100), // 平面
     new THREE.TetrahedronGeometry(100, 0), // カプセル形状
     new THREE.ConeGeometry(100, 100, 32), // 三角錐

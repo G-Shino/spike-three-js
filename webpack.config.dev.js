@@ -5,6 +5,7 @@ module.exports = {
   entry: {
     index: "./src/index.ts",
     earth: "./src/earth.ts",
+    earthWithRotationCam: "./src/earthWithRotationCam.ts",
     geometory: "./src/geometory.ts",
     orbitControl: "./src/orbitControl.ts"
   },
