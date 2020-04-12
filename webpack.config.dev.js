@@ -9,7 +9,8 @@ module.exports = {
     earthWithRotationCam: "./src/ts/earthWithRotationCam.ts",
     geometory: "./src/ts/geometory.ts",
     orbitControl: "./src/ts/orbitControl.ts",
-    shadow: "./src/ts/shadow.ts"
+    shadow: "./src/ts/shadow.ts",
+    cubes: "./src/ts/cubes.ts"
   },
   output: {
     path: path.join(__dirname, "dist"),
@@ -46,6 +47,7 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, "./dist"),
     watchContentBase: true,
+    open: true,
     port: 3000
   },
 
@@ -85,6 +87,12 @@ module.exports = {
       template: "./src/html/three_pages.html",
       inject: "head",
       chunks: ["shadow"]
+    }),
+    new HtmlWebpackPlugin({
+      filename: "cubes.html",
+      template: "./src/html/three_pages.html",
+      inject: "head",
+      chunks: ["cubes"]
     })
   ]
 };
