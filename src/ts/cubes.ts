@@ -1,13 +1,12 @@
-import * as THREE from "three"
-import Floor from "../data/floor.png"
+import * as THREE from "three";
+import Floor from "../data/floor.png";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-
 
 window.addEventListener("DOMContentLoaded", () => {
   const renderer = new THREE.WebGLRenderer();
   const width = window.innerWidth;
   const height = window.innerHeight;
-  renderer.setPixelRatio(window.devicePixelRatio)
+  renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(width, height);
   renderer.shadowMap.enabled = true;
   document.body.appendChild(renderer.domElement);
@@ -24,19 +23,19 @@ window.addEventListener("DOMContentLoaded", () => {
     new THREE.MeshStandardMaterial({
       map: floorTexture,
       roughness: 0.0,
-      metalness: 0.6
+      metalness: 0.6,
     })
-  )
-  floorMesh.rotation.x = - Math.PI /2 ;
+  );
+  floorMesh.rotation.x = -Math.PI / 2;
   floorMesh.receiveShadow = true;
   scene.add(floorMesh);
 
-  const boxGeometory = new THREE.BoxGeometry(45, 45, 45)
+  const boxGeometory = new THREE.BoxGeometry(45, 45, 45);
   const boxMaterial = new THREE.MeshStandardMaterial({
     color: 0x22dd22,
     roughness: 0.1,
     metalness: 0.2,
-  })
+  });
   for (let i = 0; i < 60; i++) {
     const box = new THREE.Mesh(boxGeometory, boxMaterial);
     box.position.x = Math.round((Math.random() - 0.5) * 19) * 50 + 25;
@@ -55,14 +54,14 @@ window.addEventListener("DOMContentLoaded", () => {
     Math.PI / 5,
     0.2,
     1.5
-  )
+  );
   spotLight.position.set(500, 300, 500);
   spotLight.castShadow = true;
   spotLight.shadow.mapSize.width = 2048;
   spotLight.shadow.mapSize.height = 2048;
-  scene.add(spotLight)
+  scene.add(spotLight);
 
-  const camera = new THREE.PerspectiveCamera(30, width/height)
+  const camera = new THREE.PerspectiveCamera(30, width / height);
   camera.position.set(500, 500, 500);
   camera.lookAt(new THREE.Vector3(0, 0, 0));
 
@@ -76,7 +75,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const tick = () => {
     requestAnimationFrame(tick);
     controls.update();
-    renderer.render(scene, camera)
-  }
+    renderer.render(scene, camera);
+  };
   tick();
-})
+});

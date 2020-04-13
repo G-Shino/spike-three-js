@@ -10,7 +10,8 @@ module.exports = {
     geometory: "./src/ts/geometory.ts",
     orbitControl: "./src/ts/orbitControl.ts",
     shadow: "./src/ts/shadow.ts",
-    cubes: "./src/ts/cubes.ts"
+    cubes: "./src/ts/cubes.ts",
+    fog: "./src/ts/fog.ts"
   },
   output: {
     path: path.join(__dirname, "dist"),
@@ -60,39 +61,45 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       filename: "earth.html",
-      template: "./src/html/three_pages.html",
+      template: "./src/html/threePages.html",
       inject: "head",
       chunks: ["earth"]
     }),
     new HtmlWebpackPlugin({
       filename: "earthWithRotationCam.html",
-      template: "./src/html/three_pages.html",
+      template: "./src/html/threePages.html",
       inject: "head",
       chunks: ["earthWithRotationCam"]
     }),
     new HtmlWebpackPlugin({
       filename: "geometory.html",
-      template: "./src/html/three_pages.html",
+      template: "./src/html/threePages.html",
       inject: "head",
       chunks: ["geometory"]
     }),
     new HtmlWebpackPlugin({
       filename: "orbitControl.html",
-      template: "./src/html/three_pages.html",
+      template: "./src/html/threePages.html",
       inject: "head",
       chunks: ["orbitControl"]
     }),
     new HtmlWebpackPlugin({
       filename: "shadow.html",
-      template: "./src/html/three_pages.html",
+      template: "./src/html/threePages.html",
       inject: "head",
       chunks: ["shadow"]
     }),
     new HtmlWebpackPlugin({
       filename: "cubes.html",
-      template: "./src/html/three_pages.html",
+      template: "./src/html/threePages.html",
       inject: "head",
       chunks: ["cubes"]
+    }),
+    new HtmlWebpackPlugin({
+      filename: "fog.html",
+      template: "./src/html/threePages.html",
+      inject: "head",
+      chunks: ["fog"]
     })
   ]
 };
