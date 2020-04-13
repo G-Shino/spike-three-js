@@ -11,45 +11,46 @@ module.exports = {
     orbitControl: "./src/ts/orbitControl.ts",
     shadow: "./src/ts/shadow.ts",
     cubes: "./src/ts/cubes.ts",
-    fog: "./src/ts/fog.ts"
+    fog: "./src/ts/fog.ts",
+    worldPosition: "./src/ts/worldPosition.ts",
   },
   output: {
     path: path.join(__dirname, "dist"),
-    filename: "./js/[name].js"
+    filename: "./js/[name].js",
   },
 
   devtool: "source-map",
 
   resolve: {
-    extensions: [".ts", ".js", ".jpg"]
+    extensions: [".ts", ".js", ".jpg"],
   },
 
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        use: [{ loader: "ts-loader" }]
+        use: [{ loader: "ts-loader" }],
       },
       {
         test: /\.(mp4|png|jpg)?$/,
         use: [
           {
-            loader: "file-loader"
-          }
-        ]
+            loader: "file-loader",
+          },
+        ],
       },
       {
         test: /\.html?$/,
-        use: [{ loader: "html-loader" }]
-      }
-    ]
+        use: [{ loader: "html-loader" }],
+      },
+    ],
   },
 
   devServer: {
     contentBase: path.join(__dirname, "./dist"),
     watchContentBase: true,
     open: true,
-    port: 3000
+    port: 3000,
   },
 
   plugins: [
@@ -57,49 +58,55 @@ module.exports = {
       filename: "index.html",
       template: "./src/html/index.html",
       inject: "head",
-      chunks: ["index"]
+      chunks: ["index"],
     }),
     new HtmlWebpackPlugin({
       filename: "earth.html",
       template: "./src/html/threePages.html",
       inject: "head",
-      chunks: ["earth"]
+      chunks: ["earth"],
     }),
     new HtmlWebpackPlugin({
       filename: "earthWithRotationCam.html",
       template: "./src/html/threePages.html",
       inject: "head",
-      chunks: ["earthWithRotationCam"]
+      chunks: ["earthWithRotationCam"],
     }),
     new HtmlWebpackPlugin({
       filename: "geometory.html",
       template: "./src/html/threePages.html",
       inject: "head",
-      chunks: ["geometory"]
+      chunks: ["geometory"],
     }),
     new HtmlWebpackPlugin({
       filename: "orbitControl.html",
       template: "./src/html/threePages.html",
       inject: "head",
-      chunks: ["orbitControl"]
+      chunks: ["orbitControl"],
     }),
     new HtmlWebpackPlugin({
       filename: "shadow.html",
       template: "./src/html/threePages.html",
       inject: "head",
-      chunks: ["shadow"]
+      chunks: ["shadow"],
     }),
     new HtmlWebpackPlugin({
       filename: "cubes.html",
       template: "./src/html/threePages.html",
       inject: "head",
-      chunks: ["cubes"]
+      chunks: ["cubes"],
     }),
     new HtmlWebpackPlugin({
       filename: "fog.html",
       template: "./src/html/threePages.html",
       inject: "head",
-      chunks: ["fog"]
-    })
-  ]
+      chunks: ["fog"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "worldPosition.html",
+      template: "./src/html/threePages.html",
+      inject: "head",
+      chunks: ["worldPosition"],
+    }),
+  ],
 };
