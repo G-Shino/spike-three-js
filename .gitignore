@@ -6,3 +6,5 @@ node_modules
 
 #extra files
 .DS_Store
+
+*.obj
