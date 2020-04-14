@@ -63,8 +63,6 @@ window.addEventListener("DOMContentLoaded", () => {
       const material = mesh.material as THREE.MeshStandardMaterial;
       if (intersects.length > 0 && mesh === intersects[0].object) {
         material.color.setHex(0xff0000);
-      } else {
-        material.color.setHex(0xffffff);
       }
     });
     renderer.render(scene, camera);
