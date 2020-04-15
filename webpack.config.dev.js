@@ -13,6 +13,7 @@ module.exports = {
     cubes: "./src/ts/cubes.ts",
     fog: "./src/ts/fog.ts",
     worldPosition: "./src/ts/worldPosition.ts",
+    mouseSelect: "./src/ts/mouseSelect.ts",
   },
   output: {
     path: path.join(__dirname, "dist"),
@@ -107,6 +108,12 @@ module.exports = {
       template: "./src/html/threePages.html",
       inject: "head",
       chunks: ["worldPosition"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "mouseSelect.html",
+      template: "./src/html/threePages.html",
+      inject: "head",
+      chunks: ["mouseSelect"],
     }),
   ],
 };
