@@ -13,6 +13,7 @@ module.exports = {
     cubes: "./src/ts/cubes.ts",
     fog: "./src/ts/fog.ts",
     worldPosition: "./src/ts/worldPosition.ts",
+    objLoad: "./src/ts/objLoad.ts",
     mouseSelect: "./src/ts/mouseSelect.ts",
   },
   output: {
@@ -43,6 +44,10 @@ module.exports = {
       {
         test: /\.html?$/,
         use: [{ loader: "html-loader" }],
+      },
+      {
+        test: /\.obj$/,
+        use: [{ loader: "file-loader" }],
       },
     ],
   },
@@ -109,6 +114,12 @@ module.exports = {
       inject: "head",
       chunks: ["worldPosition"],
     }),
+    new HtmlWebpackPlugin({
+      filename: "objLoad.html",
+      template: "./src/html/threePages.html",
+      inject: "head",
+      chunks: ["objLoad"],
+     }),
     new HtmlWebpackPlugin({
       filename: "mouseSelect.html",
       template: "./src/html/threePages.html",
