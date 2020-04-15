@@ -14,6 +14,7 @@ module.exports = {
     fog: "./src/ts/fog.ts",
     worldPosition: "./src/ts/worldPosition.ts",
     objLoad: "./src/ts/objLoad.ts",
+    mouseSelect: "./src/ts/mouseSelect.ts",
   },
   output: {
     path: path.join(__dirname, "dist"),
@@ -118,6 +119,12 @@ module.exports = {
       template: "./src/html/threePages.html",
       inject: "head",
       chunks: ["objLoad"],
+     }),
+    new HtmlWebpackPlugin({
+      filename: "mouseSelect.html",
+      template: "./src/html/threePages.html",
+      inject: "head",
+      chunks: ["mouseSelect"],
     }),
   ],
 };
