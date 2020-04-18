@@ -18,6 +18,7 @@ module.exports = {
     classComponent: "./src/ts/classComponent.ts",
     math: "./src/ts/math",
     math2: "./src/ts/math2",
+    scroll: "./src/ts/scroll",
   },
   output: {
     path: path.join(__dirname, "dist"),
@@ -146,6 +147,12 @@ module.exports = {
       template: "./src/html/threePages.html",
       inject: "head",
       chunks: ["math2"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "scroll.html",
+      template: "./src/html/threePages.html",
+      inject: "head",
+      chunks: ["scroll"],
     }),
   ],
 };
