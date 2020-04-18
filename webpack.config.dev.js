@@ -16,6 +16,8 @@ module.exports = {
     objLoad: "./src/ts/objLoad.ts",
     mouseSelect: "./src/ts/mouseSelect.ts",
     classComponent: "./src/ts/classComponent.ts",
+    math: "./src/ts/math",
+    math2: "./src/ts/math2",
   },
   output: {
     path: path.join(__dirname, "dist"),
@@ -132,6 +134,18 @@ module.exports = {
       template: "./src/html/threePages.html",
       inject: "head",
       chunks: ["classComponent"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "math.html",
+      template: "./src/html/threePages.html",
+      inject: "head",
+      chunks: ["math"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "math2.html",
+      template: "./src/html/threePages.html",
+      inject: "head",
+      chunks: ["math2"],
     }),
   ],
 };
