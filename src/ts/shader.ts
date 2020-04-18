@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import vertexSource from "./../shader/shader.vert";
 import fragmentSource from "./../shader/shader.frag";
+import { Vector2 } from "three";
 
 window.addEventListener("DOMContentLoaded", () => {
   const renderer = new THREE.WebGLRenderer();
@@ -13,12 +14,20 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const scene = new THREE.Scene();
 
+  const mouse = new THREE.Vector2(0.5, 0.5);
+  let radius = 0.01;
   const uniforms = {
     uAspect: {
       value: width / height,
     },
     uTime: {
       value: 0.0,
+    },
+    uMouse: {
+      value: new Vector2(0.5, 0.5),
+    },
+    uRadius: {
+      value: radius,
     },
   };
   const planeGeo = new THREE.PlaneGeometry(2, 2, 10, 10);
@@ -37,7 +46,22 @@ window.addEventListener("DOMContentLoaded", () => {
   const anim = () => {
     requestAnimationFrame(anim);
     uniforms.uTime.value += 0.01;
+    uniforms.uMouse.value.lerp(mouse, 0.08);
+    uniforms.uRadius.value += (radius - uniforms.uRadius.value) * 0.2;
     renderer.render(scene, camera);
   };
   anim();
+
+  renderer.domElement.addEventListener("mousemove", (e) => {
+    mouse.x = e.clientX / width;
+    mouse.y = 1.0 - e.clientY / height;
+  });
+
+  renderer.domElement.addEventListener("mousedown", () => {
+    radius = 0.25;
+  });
+
+  renderer.domElement.addEventListener("mouseup", () => {
+    radius = 0.01;
+  });
 });
