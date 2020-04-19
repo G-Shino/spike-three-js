@@ -16,9 +16,10 @@ module.exports = {
     objLoad: "./src/ts/objLoad.ts",
     mouseSelect: "./src/ts/mouseSelect.ts",
     classComponent: "./src/ts/classComponent.ts",
-    math: "./src/ts/math",
-    math2: "./src/ts/math2",
-    scroll: "./src/ts/scroll",
+    math: "./src/ts/math.ts",
+    math2: "./src/ts/math2.ts",
+    scroll: "./src/ts/scroll.ts",
+    shader: "./src/ts/shader.ts",
   },
   output: {
     path: path.join(__dirname, "dist"),
@@ -52,6 +53,10 @@ module.exports = {
       {
         test: /\.obj$/,
         use: [{ loader: "file-loader" }],
+      },
+      {
+        test: /\.(vert|frag|glsl)$/,
+        use: [{ loader: "webpack-glsl-loader" }],
       },
     ],
   },
@@ -153,6 +158,12 @@ module.exports = {
       template: "./src/html/threePages.html",
       inject: "head",
       chunks: ["scroll"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "shader.html",
+      template: "./src/html/threePages.html",
+      inject: "head",
+      chunks: ["shader"],
     }),
   ],
 };
