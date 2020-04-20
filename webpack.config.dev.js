@@ -21,6 +21,7 @@ module.exports = {
     scroll: "./src/ts/scroll.ts",
     shader: "./src/ts/shader.ts",
     shader2: "./src/ts/shader2.ts",
+    sphere: "./src/ts/sphere.ts",
   },
   output: {
     path: path.join(__dirname, "dist"),
@@ -171,6 +172,12 @@ module.exports = {
       template: "./src/html/threePages.html",
       inject: "head",
       chunks: ["shader2"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "sphere.html",
+      template: "./src/html/threePages.html",
+      inject: "head",
+      chunks: ["sphere"],
     }),
   ],
 };
