@@ -22,6 +22,7 @@ module.exports = {
     shader: "./src/ts/shader.ts",
     shader2: "./src/ts/shader2.ts",
     sphere: "./src/ts/sphere.ts",
+    animation: "./src/ts/animation.ts",
   },
   output: {
     path: path.join(__dirname, "dist"),
@@ -178,6 +179,12 @@ module.exports = {
       template: "./src/html/threePages.html",
       inject: "head",
       chunks: ["sphere"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "animation.html",
+      template: "./src/html/threePages.html",
+      inject: "head",
+      chunks: ["animation"],
     }),
   ],
 };
