@@ -23,6 +23,7 @@ module.exports = {
     shader2: "./src/ts/shader2.ts",
     sphere: "./src/ts/sphere.ts",
     animation: "./src/ts/animation.ts",
+    animation2: "./src/ts/animation2.ts",
   },
   output: {
     path: path.join(__dirname, "dist"),
@@ -60,6 +61,10 @@ module.exports = {
       {
         test: /\.(vert|frag|glsl)$/,
         use: [{ loader: "webpack-glsl-loader" }],
+      },
+      {
+        test: /\.gltf?$/,
+        use: [{ loader: "gltf-webpack-loader" }],
       },
     ],
   },
@@ -185,6 +190,12 @@ module.exports = {
       template: "./src/html/threePages.html",
       inject: "head",
       chunks: ["animation"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "animation2.html",
+      template: "./src/html/threePages.html",
+      inject: "head",
+      chunks: ["animation2"],
     }),
   ],
 };
