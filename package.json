@@ -22,6 +22,6 @@
     "webpack-glsl-loader": "^1.0.1"
   },
   "dependencies": {
-    "three": "^0.115.0"
+    "three": "^0.125.0"
   }
 }
